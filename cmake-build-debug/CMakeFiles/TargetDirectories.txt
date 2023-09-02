@@ -1,0 +1,3 @@
+/Users/alessio/CLionProjects/PngAnalyzer/cmake-build-debug/CMakeFiles/PngAnalyzer.dir
+/Users/alessio/CLionProjects/PngAnalyzer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alessio/CLionProjects/PngAnalyzer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
