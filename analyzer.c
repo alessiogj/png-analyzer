@@ -138,7 +138,7 @@ int main(int argc, char **argv)
         {
             quit = true;
         }
-        else if (*(uint32_t *)chunk_type == IDAT)
+        else if (*(uint32_t *)chunk_type == IHDR)
         {
 
             read_bytes_or_panic(input_file, &header, sizeof(png_header_t));
