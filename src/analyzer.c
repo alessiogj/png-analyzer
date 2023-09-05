@@ -91,14 +91,7 @@ int main(int argc, char **argv)
         }
         else
         {
-            parse_idat(input_file, chunk_sz);
-            //TODO: dopo il parsing rimuovere la fseek
-            /*if(fseek(input_file, chunk_sz, SEEK_CUR) < 0)
-            {
-                fprintf(stderr, "ERROR: could not skip a chunk: %s\n", strerror(errno)) ;
-                fclose(input_file);
-                exit(1);
-            }*/
+            parse_idat(input_file, chunk_sz, header);
         }
 
         uint32_t chunk_crc;

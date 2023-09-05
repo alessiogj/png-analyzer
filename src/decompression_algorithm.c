@@ -54,6 +54,6 @@ uint8_t *decompress(uint8_t *src, uint32_t size, uint32_t *result_sz)
 
     inflateEnd(&stream);
 
-    *result_sz =  decompressed_size;
+    *result_sz =  *result_sz = stream.total_out;;
     return decompressed_data;
 }

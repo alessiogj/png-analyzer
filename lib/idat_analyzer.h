@@ -14,6 +14,6 @@
  * @param input_file file to read from
  * @param chunk_sz size of the chunk
  */
-void parse_idat(FILE* input_file, int32_t chunk_sz);
+void parse_idat(FILE* input_file, uint32_t chunk_sz, png_header_ihdr_t header);
 
 #endif //PNGANALYZER_IDAT_ANALYZER_H

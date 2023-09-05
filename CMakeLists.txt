@@ -12,7 +12,7 @@ add_executable(PngAnalyzer
         lib/utils.h
         src/utils.c
         src/idat_analyzer.c
-        lib/idat_analyzer.h lib/decompression_algorithm.h src/decompression_algorithm.c)
+        lib/idat_analyzer.h lib/decompression_algorithm.h src/decompression_algorithm.c lib/image_parsing.h src/image_parsing.c)
 
 # Collega la libreria zlib al tuo target
 find_package(ZLIB REQUIRED)

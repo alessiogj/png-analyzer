@@ -4,9 +4,11 @@
 
 #include "../lib/idat_analyzer.h"
 #include "../lib/decompression_algorithm.h"
+#include "../lib/types.h"
+#include "../lib/image_parsing.h"
 
 /*********************************public functions********************************/
-void parse_idat(FILE* input_file, int32_t chunk_sz)
+void parse_idat(FILE* input_file, uint32_t chunk_sz, png_header_ihdr_t header)
 {
     printf("/*---------------------------------------------------------------------*\n");
     printf(" *                                                                     *\n");
@@ -19,18 +21,27 @@ void parse_idat(FILE* input_file, int32_t chunk_sz)
     read_bytes_or_panic(input_file, &compressed_data, sizeof(compressed_data));
 
     uint32_t result_sz = 0;
-    unsigned char *decompressed_data = decompress(compressed_data, chunk_sz, &result_sz);
+    uint32_t *decompressed_data = decompress(compressed_data, chunk_sz, &result_sz);
 
-    for(int i = 0; i < result_sz; i++)
-    {
-        printf("%u", decompressed_data[i]);
-        if (i % 800 == 0)
-            printf("\n");
+    /*TODO: ho supposto che l'immagine sia RGBA, generalizzare in modo da poter ritornare una struttura
+     * dinamica a seconda del contesto, il valore della struttura è parametrica ai canali presenti nell'immagine*/
+
+    color_channels_t colors = parse_image(decompressed_data, header);
+    switch (header.color_type) {
+        case PNG_COLOR_TYPE_GRAYSCALE:
+            break;
+        case PNG_COLOR_TYPE_RGB:
+            break;
+        case PNG_COLOR_TYPE_PALETTE:
+            break;
+        case PNG_COLOR_TYPE_GRAYSCALE_ALPHA:
+            break;
+        case PNG_COLOR_TYPE_RGBA:
+            print_histogram_rgba(colors.rgba_channels);
+            break;
     }
-    printf("\n");
 
     free(decompressed_data);
-
 }
 
 /*********************************private functions********************************/
