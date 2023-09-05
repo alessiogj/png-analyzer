@@ -5,6 +5,7 @@
 #include "../lib/idat_analyzer.h"
 #include "../lib/decompression_algorithm.h"
 
+/*********************************public functions********************************/
 void parse_idat(FILE* input_file, int32_t chunk_sz)
 {
     printf("/*---------------------------------------------------------------------*\n");
@@ -31,3 +32,5 @@ void parse_idat(FILE* input_file, int32_t chunk_sz)
     free(decompressed_data);
 
 }
+
+/*********************************private functions********************************/

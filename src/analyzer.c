@@ -3,11 +3,13 @@
 #include "../lib/idat_analyzer.h"
 #include "../lib/ihdr_analyzer.h"
 
+/****************************Private defines********************************/
 #define  PNG_SIG_CAP    8
 #define  IEND           0x444E4549
 #define  IDAT           0x54414449
 #define  IHDR           0x52444849
 
+/*************************Private global variables***************************/
 uint8_t  png_sig[] = {137, 80, 78, 71, 13, 10, 26, 10};
 
 int main(int argc, char **argv)

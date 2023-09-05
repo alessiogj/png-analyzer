@@ -2,10 +2,7 @@
 // Created by Alessio Gjergji on 05/09/23.
 //
 
-#include "../lib/types.h"
 #include "../lib/utils.h"
-
-
 
 void read_bytes_or_panic(FILE * file, void *buf, size_t buf_cap)
 {
